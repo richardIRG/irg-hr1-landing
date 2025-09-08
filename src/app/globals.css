@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand tokens: tweak these in tailwind.config.ts if preferred */
+:root {
+  --brand-primary: 31 95 169; /* #1F5FA9 */
+  --brand-secondary: 27 179 154; /* #1BB39A */
+}
+
+html, body { height: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { @apply bg-white text-slate-900 antialiased; }
+
+.container-narrow { @apply max-w-3xl mx-auto px-4 sm:px-6; }
+.container-wide { @apply max-w-6xl mx-auto px-4 sm:px-6; }
+
+/* Simple prose tweaks */
+.prose h2 { @apply text-2xl font-semibold; }
+.prose p { @apply leading-relaxed; }
+
