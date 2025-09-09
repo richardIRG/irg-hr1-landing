@@ -7,7 +7,7 @@ export async function sendWhitepaperEmail(to: string, downloadUrl: string, first
   }
 
   const resend = new Resend(env.RESEND_API_KEY)
-  const subject = 'Your H.R. 1 + CalAIM Operational Whitepaper'
+  const subject = 'Your requested HR1 CalAIM whitepaper'
   const greeting = firstName ? `Hi ${firstName},` : 'Hi there,'
   
   const html = `
@@ -111,7 +111,12 @@ export async function sendWhitepaperEmail(to: string, downloadUrl: string, first
     to,
     subject,
     html,
-    reply_to: 'info@insightresearchgroup.com'
+    reply_to: 'info@insightresearchgroup.com',
+    headers: {
+      'X-Entity-Ref-ID': `hr1-whitepaper-${Date.now()}`,
+      'List-Unsubscribe': `<mailto:unsubscribe@insightresearchgroup.com?subject=Unsubscribe>`,
+      'Precedence': 'bulk'
+    }
   })
 
   return { sent: true as const }
