@@ -104,7 +104,7 @@ export async function POST(req: NextRequest) {
       role: input.role,
       challenge: input.challenge,
       consent: input.consent,
-      source: input.source ?? 'PATH Marketplace',
+      source: input.source ?? 'HR1',
       utm: input.utm,
       referrer: input.referrer,
       path: input.path,
